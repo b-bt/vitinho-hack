@@ -5,15 +5,38 @@ ledRed = new Gpio(3, 'out'),
 ledYellow = new Gpio(4, 'out'),
 interval;
 
-var pushButton = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
+var pushButton1 = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
+var pushButton2 = new Gpio(27, 'in', 'both'); //use GPIO pin 27 as input, and 'both' button presses, and releases should be handled
+var pushButton3 = new Gpio(22, 'in', 'both'); //use GPIO pin 22 as input, and 'both' button presses, and releases should be handled
 
-pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
+// function setLedState(btn, err, value) {
+//   if (err) { //if an error
+//     console.error('There was an error', err); //output error message to console
+//     return;
+//   }
+// }
+
+pushButton1.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
   if (err) { //if an error
     console.error('There was an error', err); //output error message to console
     return;
   }
   ledGreen.writeSync(value); //turn LED on or off depending on the button state (0 or 1)
+});
+
+pushButton2.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
+  if (err) { //if an error
+    console.error('There was an error', err); //output error message to console
+    return;
+  }
   ledRed.writeSync(value); //turn LED on or off depending on the button state (0 or 1)
+});
+
+pushButton3.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
+  if (err) { //if an error
+    console.error('There was an error', err); //output error message to console
+    return;
+  }
   ledYellow.writeSync(value); //turn LED on or off depending on the button state (0 or 1)
 });
 
