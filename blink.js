@@ -5,9 +5,9 @@ ledRed = new Gpio(3, 'out'),
 ledYellow = new Gpio(4, 'out'),
 interval;
 
-var pushButton1 = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
-var pushButton2 = new Gpio(27, 'in', 'both'); //use GPIO pin 27 as input, and 'both' button presses, and releases should be handled
-var pushButton3 = new Gpio(22, 'in', 'both'); //use GPIO pin 22 as input, and 'both' button presses, and releases should be handled
+var pushButton1 = new Gpio(17, 'in', 'both', {debounceTimeout: 10}); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
+var pushButton2 = new Gpio(27, 'in', 'both', {debounceTimeout: 10}); //use GPIO pin 27 as input, and 'both' button presses, and releases should be handled
+var pushButton3 = new Gpio(22, 'in', 'both', {debounceTimeout: 10}); //use GPIO pin 22 as input, and 'both' button presses, and releases should be handled
 
 // function setLedState(btn, err, value) {
 //   if (err) { //if an error
@@ -57,7 +57,9 @@ function unexportOnClose() { //function to run when exiting program
   ledYellow.writeSync(0); // Turn ledYellow off
   ledYellow.unexport(); // Unexport ledYellow GPIO to free resources
 
-  pushButton.unexport(); // Unexport Button GPIO to free resources
+  pushButton1.unexport(); // Unexport Button GPIO to free resources
+  pushButton2.unexport(); // Unexport Button GPIO to free resources
+  pushButton3.unexport(); // Unexport Button GPIO to free resources
 
   process.exit();
 };
