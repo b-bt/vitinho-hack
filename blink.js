@@ -57,7 +57,7 @@ usonic.init(function (error) {
     console.log(error);
     return;
   }
-  var sensor = usonic.createSensor(21, 20, 450);
+  var sensor = usonic.createSensor(21, 20, 1000);
   setInterval(function() {
       console.log('Distance: ' + sensor().toFixed(2) + ' cm');
   }, 1000);
