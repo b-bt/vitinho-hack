@@ -4,8 +4,8 @@
   "description": "",
   "main": "blink.js",
   "dependencies": {
-    "onoff": "^3.2.2",
-    "mmm-usonic": "git://github.com/mochman/mmm-usonic.git#fb43599"
+    "mmm-usonic": "git://github.com/mochman/mmm-usonic.git#fb43599",
+    "onoff": "^3.2.2"
   },
   "devDependencies": {},
   "scripts": {
