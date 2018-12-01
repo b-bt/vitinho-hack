@@ -49,6 +49,16 @@ pushButton3.watch(function (err, value) { //Watch for hardware interrupts on pus
 //   });
 // }, 2000);
 
+// MARK: Ultrassonic
+
+var usonic = require('r-pi-usonic');
+var sensor = usonic.sensor(21, 20, 1000);
+setInterval(function() {
+    console.log('Distance: ' + sensor().toFixed(2) + ' cm');
+}, 1000);
+
+
+
 function unexportOnClose() { //function to run when exiting program
   ledGreen.writeSync(0); // Turn ledGreen off
   ledGreen.unexport(); // Unexport ledGreen GPIO to free resources
