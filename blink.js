@@ -50,12 +50,18 @@ pushButton3.watch(function (err, value) { //Watch for hardware interrupts on pus
 // }, 2000);
 
 // MARK: Ultrassonic
-
 var usonic = require('mmm-usonic');
-var sensor = usonic.createSensor(21, 20, 450);
-setInterval(function() {
-    console.log('Distance: ' + sensor().toFixed(2) + ' cm');
-}, 1000);
+
+usonic.init(function (error) {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  var sensor = usonic.createSensor(21, 20, 450);
+  setInterval(function() {
+      console.log('Distance: ' + sensor().toFixed(2) + ' cm');
+  }, 1000);
+});
 
 
 
