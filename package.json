@@ -1,0 +1,23 @@
+{
+  "name": "vitinho-hack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blink.js",
+  "dependencies": {
+    "onoff": "^3.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tbbruno/vitinho-hack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tbbruno/vitinho-hack/issues"
+  },
+  "homepage": "https://github.com/tbbruno/vitinho-hack#readme"
+}
